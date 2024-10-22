@@ -1,0 +1,53 @@
+
+O que são e exemplos de uso (useState, useEffect).
+Hooks são como ferramentas que você usa para adicionar funcionalidades aos seus componentes funcionais. Eles permitem que você gerencie o estado e efeitos colaterais, sem precisar usar classes.
+Exemplos de Uso
+useState
+é um Hook que permite que você adicione e gerencie um “estado” dentro do seu componente. Pense no estado como a forma como algo está em um determinado momento.
+Exemplo do Dia a Dia: Imagine que você está fazendo uma lista de compras. O estado poderia ser os itens que você já adicionou à lista.
+
+const [itens, setItens] = useState([]);
+// Adicionando um item
+setItens([...itens, "maçã"]);
+
+Aqui, itens é a lista atual, e setItens é a função que usamos para adicionar um novo item (neste caso, "maçã"). Cada vez que você adicionar um item, a lista vai ser atualizada.
+useEffect
+Hook que permite executar efeitos colaterais, como buscar dados ou fazer algo sempre que o estado muda. Pense nisso como uma notificação que acontece quando algo muda.
+Exemplo do Dia a Dia: Imagine que você está em um restaurante e, sempre que você pede um prato, o garçom volta com uma atualização da cozinha. O useEffect faz isso no seu componente.
+
+useEffect(() => {
+  console.log("A lista de compras foi atualizada:", itens);
+}, [itens]);
+
+Neste caso, sempre que a lista de itens for atualizada (ou seja, você adicionar algo), a mensagem será exibida no console. Isso é como o garçom voltando para informar que a cozinha está preparando seu pedido.
+Usado na prática
+
+import React, { useState, useEffect } from 'react';
+function ListaDeCompras() {
+  const [itens, setItens] = useState([]);
+  // Efeito colateral: notifica quando a lista muda
+  useEffect(() => {
+    console.log("A lista de compras foi atualizada:", itens);
+  }, [itens]);
+  const adicionarItem = (item) => {
+    setItens([...itens, item]);
+  };
+  return (
+    <div>
+      <h1>Minha Lista de Compras</h1>
+      <button onClick={() => adicionarItem("maçã")}>Adicionar Maçã</button>
+      <button onClick={() => adicionarItem("banana")}>Adicionar Banana</button>
+      <ul>
+        {itens.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+Resuminho
+Hooks são ferramentas que ajudam a adicionar funcionalidades a componentes funcionais.
+useState permite gerenciar o estado, como itens em uma lista.
+useEffect permite executar ações quando o estado muda, como notificar sobre atualizações.
+Como eles permitem o uso de estado e efeitos colaterais em componentes funcionais.
