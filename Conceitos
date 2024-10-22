@@ -1,0 +1,43 @@
+React
+Principais Conceitos:
+Componentes: O que são e como funcionam (componentes funcionais e de classe).
+O que são? Pense nos componentes como peças de um quebra-cabeça. Cada peça tem sua forma e função, mas quando juntas, formam uma imagem completa.
+Componentes Funcionais e de Classe:
+Componentes Funcionais: Imagine que você tem uma receita de bolo. Essa receita é simples e direta. Você pega os ingredientes (props) e, seguindo os passos, faz o bolo (o que aparece na tela). Esses componentes são mais simples e geralmente usados quando não precisam de muito estado interno.
+Componentes de Classe: Agora, pense em um chef de cozinha que também precisa anotar detalhes da receita, como o tempo que o bolo leva para assar e a temperatura do forno. Esses componentes têm mais “responsabilidades” e podem manter informações sobre seu estado interno.
+JSX
+O que é? JSX é como uma linguagem de descrição que usamos para dizer ao computador como queremos que nossa “cozinha” (a página da web) fique. É como escrever um cardápio.
+Exemplo: Se você quer fazer uma salada, em vez de escrever "faça uma salada", você poderia usar JSX assim:
+JSX: O que é e como é usado para criar elementos.
+
+<div>
+  <h1>Minha Salada Favorita</h1>
+  <ul>
+    <li>Alface</li>
+    <li>Tomate</li>
+    <li>Queijo</li>
+  </ul>
+</div>
+
+Aqui, você está descrevendo visualmente como quer que a salada apareça, com título e ingredientes.
+Props e State: Diferenças e como gerenciar dados dentro de componentes.
+Pense nas props como ingredientes que você passa de uma receita para outra. Se você tem um prato principal e quer que o acompanhamento tenha um molho especial, você passa a receita do molho como uma prop.
+Exemplo: Se você tem um componente “Prato” que recebe “ingredientes”:
+<Prato ingredientes="frango, arroz e brócolis" />
+Isso diz ao componente quais ingredientes usar.
+State (Estado): Agora, o state é como um caderno de anotações que o chef usa para lembrar o que precisa mudar ao longo do tempo. Por exemplo, se você está fazendo um prato e, durante o processo, decide que quer adicionar mais sal, você anota isso.
+Exemplo: Se o chef decide que o prato está pronto ou que precisa de mais tempo para cozinhar, isso pode ser gerenciado pelo state:
+class Prato extends React.Component {
+  constructor() {
+    super();
+    this.state = { pronto: false };
+  }
+  cozinhar() {
+    this.setState({ pronto: true });
+  }
+}
+Aqui, o estado indica se o prato está pronto ou não.
+Componentes são como peças de um quebra-cabeça.
+JSX é a forma de descrever visualmente o que você quer que apareça.
+Props são ingredientes passados entre receitas, e State é o que o chef anota sobre o que precisa mudar durante o preparo.
+
